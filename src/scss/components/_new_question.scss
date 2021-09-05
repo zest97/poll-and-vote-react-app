@@ -1,0 +1,22 @@
+.new_question_card {
+    .label {
+        font-size: 14px;
+    }
+
+    input:focus {
+        box-shadow: none !important;
+    }
+
+    .height-2 {
+        height: 2px;
+    }
+
+    .btn:focus {
+        box-shadow: none !important;
+    }
+
+    .error {
+        font-size: 13px;
+        line-height: 2em;
+    }
+}

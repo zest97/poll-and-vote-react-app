@@ -1,0 +1,12 @@
+nav {
+    .page-link {
+        color: $primary-color !important;
+        box-shadow: none !important;
+    }
+
+    .page-item.active .page-link {
+        color: #fff !important;
+        border-color: $primary-color !important;
+        background-color: $primary-color !important;
+    }
+}

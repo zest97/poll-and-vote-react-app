@@ -1,0 +1,15 @@
+.flex-w-50 {
+    flex: 0 1 50%;
+}
+
+.card-header-tab-button {
+    color: #aaa69d !important;
+    text-decoration: none !important;
+    background-color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.card-header-tab-button.active {
+    color: $primary-color !important;
+    background-color: #fae3e3 !important;
+}

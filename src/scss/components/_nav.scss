@@ -1,0 +1,27 @@
+@mixin navigation-text-style {
+    color: #2c3e50 !important;
+    font-weight: bold;
+}
+
+.nav {
+    .nav-item {
+        transition: border 0.2s ease-in-out;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid $primary-color;
+        }
+
+        .nav-link {
+            @include navigation-text-style;
+        }
+
+        .active {
+            color: $primary-color !important;
+        }
+    }
+
+    div.nav-link {
+        @include navigation-text-style;
+    }
+}

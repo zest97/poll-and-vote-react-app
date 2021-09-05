@@ -1,0 +1,61 @@
+@import './variables';
+@import './components/nav', 
+		'./components/sign_in', 
+		'./components/home', 
+		'./components/poll', 
+		'./components/pagination',
+		'./components/result',
+		'./components/new_question',
+		'./components/user';
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	monospace;
+}
+
+.score-result {
+	padding: 12px;
+	border-radius: 50%;
+	width: 50px;
+	background-color: #00b894;
+	margin: 10px auto;
+	height: 50px;
+}
+
+.btn-outline-primary {
+	color: $primary-color !important;
+	border-color: $primary-color !important;
+
+	&:hover {
+		color: #fff !important;
+		background-color: $primary-color !important;
+	}
+}
+
+.btn-primary {
+	color: #fff !important;
+	border-color: $primary-color !important;
+	background-color: $primary-color !important;
+
+	&:hover {
+		background-color: #991f12 !important;
+	}
+}
+
+.text-dark-red {
+	color: #b33939;
+}
+
+.user-thumbnail {
+	width: 30px;
+	height: auto;
+}

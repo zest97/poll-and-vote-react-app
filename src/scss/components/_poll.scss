@@ -1,0 +1,24 @@
+.poll-card {
+    .card-header, .question-prefix, .form-radio-label {
+        font-size: 14px !important;
+    }
+
+    .avatar-img {
+        width: 100px;
+        height: auto;
+    }
+
+    .avatar-detail-img {
+        width: 125px;
+        height: auto;
+    }
+      
+    .poll-box {
+        width: 250px;
+    }
+}
+
+.form-check-input:checked {
+    border-color: $primary-color !important;
+    background-color: $primary-color !important;
+}

@@ -1,0 +1,36 @@
+.result {
+    .title {
+        font-size: 14px !important;
+    }
+
+    .progress-gradiant-bg {
+        background: linear-gradient(90deg, rgba(208,41,89,1) 0%, rgba(201,78,111,1) 35%, rgba(214,118,146,1) 100%);
+    }
+
+    .voted {
+        background-color: #f5dfe5;
+
+        .voted-box {
+            width: 45px;
+            height: 45px;
+            padding: 8px;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            background: #079992;
+            font-size: 10px;
+            position: absolute;
+            right: -15px;
+            top: -15px;
+            font-weight: bold;
+        }
+
+        .progress {
+            background: #ffffff !important;
+        }
+    }
+
+    .description {
+        font-size: 12px !important;
+    }
+}
