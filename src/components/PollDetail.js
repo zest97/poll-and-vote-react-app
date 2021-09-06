@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PollForm from './PollForm'
 import Result from './Result'
@@ -15,6 +15,9 @@ class PollDetail extends Component {
         const { users, questions, authedUser } = this.props
         const questionId = this.props.match.params.question_id
         const question = questions[questionId]
+        if (question === undefined) {
+            return <Redirect to='/404' />
+        }
         const author = users[question.author]
         const totalVote = question.optionOne.votes.length + question.optionTwo.votes.length;
         return (
