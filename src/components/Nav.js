@@ -20,13 +20,13 @@ class Nav extends Component {
                         </li>
                         <li className='nav-item'>
                             <Link 
-                                to='/new/question' 
-                                className={location.pathname === '/new/question' ? 'nav-link active' : 'nav-link'}>New Question</Link>
+                                to='/add' 
+                                className={location.pathname === '/add' ? 'nav-link active' : 'nav-link'}>New Question</Link>
                         </li>
                         <li className='nav-item'>
                             <Link 
-                                to='/leader-board' 
-                                className={location.pathname === '/leader-board' ? 'nav-link active' : 'nav-link'}>
+                                to='/leaderboard' 
+                                className={location.pathname === '/leaderboard' ? 'nav-link active' : 'nav-link'}>
                                 Leader Board
                             </Link>
                         </li>
