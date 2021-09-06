@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authUser'
 
 class SignIn extends Component {
     state = {
         user: '',
-        redirectToHome: false
+        redirectTo: false
     }
     signIn = (e) => {
         e.preventDefault()
@@ -14,7 +14,7 @@ class SignIn extends Component {
         dispatch(setAuthedUser(this.state.user))
         this.setState(() => ({
             user: '',
-            redirectToHome: true
+            redirectTo: true
         }))
     }
     setUserName = (e) => {
@@ -23,9 +23,9 @@ class SignIn extends Component {
         }))
     }
     render() {
-        const { users } = this.props
-        if (this.state.redirectToHome) {
-            return <Redirect to='/' />
+        const { users, location } = this.props
+        if (this.state.redirectTo) {
+            return <Redirect to={location.state === undefined ? '/' : location.state.from.pathname } />
         }
         return (
             <div className='d-flex justify-content-center vh-90 align-items-center my-4'>
@@ -62,4 +62,4 @@ function mapStateToProps({ users }) {
     }
 }
 
-export default connect(mapStateToProps)(SignIn)
+export default connect(mapStateToProps)(withRouter(SignIn))
