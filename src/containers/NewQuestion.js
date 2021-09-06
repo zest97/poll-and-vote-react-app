@@ -70,7 +70,8 @@ class NewQuestion extends Component {
         }))
     }
     render() {
-        if (this.state.redirect === true) {
+        const {loadingBar } = this.props
+        if (this.state.redirect === true && loadingBar.default === 0) {
             return <Redirect to='/'/>
         }
         
@@ -114,9 +115,10 @@ class NewQuestion extends Component {
     }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, loadingBar }) {
     return {
-        authedUser
+        authedUser,
+        loadingBar
     }
 }
 

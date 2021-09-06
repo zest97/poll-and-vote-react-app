@@ -3,7 +3,6 @@ import {
     saveQuestionAnswer,
     saveQuestion
 } from '../utils/api'
-import { formatQuestion } from '../utils/_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { receiveUsers, saveUserAnswer, updateUserQuestionActionCreator } from './users'
 import { receiveQuestions, giveVoting, saveQuestionActionCreator } from './questions'
@@ -23,10 +22,12 @@ export function handleInitialData() {
 export function handleVotingOption(info) {
     return (dispatch) => {
         dispatch(showLoading())
-        dispatch(giveVoting(info))
-        dispatch(saveUserAnswer(info))
         return saveQuestionAnswer(info)
-            .then(() => dispatch(hideLoading()))
+            .then(() => {
+                dispatch(giveVoting(info))
+                dispatch(saveUserAnswer(info))
+                dispatch(hideLoading())
+            })
             .catch(e => {
                 alert('Error: Fail to vote the poll.')
             })
@@ -36,14 +37,13 @@ export function handleVotingOption(info) {
 export function handleSaveQuestion(question) {
     return (dispatch) => {
         dispatch(showLoading())
-        const formattedQuestion = formatQuestion(question)
-        dispatch(saveQuestionActionCreator(formattedQuestion))
-        dispatch(updateUserQuestionActionCreator(formattedQuestion))
-        return saveQuestion(formattedQuestion)
-            .then(() => dispatch(hideLoading()))
+        return saveQuestion(question)
+            .then((formattedQuestion) => {
+                dispatch(saveQuestionActionCreator(formattedQuestion))
+                dispatch(updateUserQuestionActionCreator(formattedQuestion))
+                dispatch(hideLoading())
+            })
             .catch(e => {
-                // remove question from user
-                // remove question from list
                 alert('Error: Fail to create new question')
             })
     }
