@@ -4,8 +4,22 @@ import {
     saveQuestion
 } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { receiveUsers, saveUserAnswer, updateUserQuestionActionCreator } from './users'
-import { receiveQuestions, giveVoting, saveQuestionActionCreator } from './questions'
+import { receiveUsers } from './users'
+import { receiveQuestions, ADD_ANSWER, ADD_QUESTION } from './questions'
+
+function addAnswerActionCreator(info) {
+    return {
+        type: ADD_ANSWER,
+        info
+    }
+}
+
+function saveQuestionActionCreator(question) {
+    return {
+        type: ADD_QUESTION,
+        question
+    }
+}
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -24,8 +38,7 @@ export function handleVotingOption(info) {
         dispatch(showLoading())
         return saveQuestionAnswer(info)
             .then(() => {
-                dispatch(giveVoting(info))
-                dispatch(saveUserAnswer(info))
+                dispatch(addAnswerActionCreator(info))
                 dispatch(hideLoading())
             })
             .catch(e => {
@@ -40,7 +53,6 @@ export function handleSaveQuestion(question) {
         return saveQuestion(question)
             .then((formattedQuestion) => {
                 dispatch(saveQuestionActionCreator(formattedQuestion))
-                dispatch(updateUserQuestionActionCreator(formattedQuestion))
                 dispatch(hideLoading())
             })
             .catch(e => {
